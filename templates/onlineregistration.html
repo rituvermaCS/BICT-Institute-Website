@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
+	{% include 'css.html' %}
+    <title>Registration</title>
+	<style>
+	.bg-primary{
+		background-color: #000000!important;
+	}
+	.navbar-light .navbar-nav .nav-link {
+    color: white;
+	}
+	.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+		color: #ffc107;
+	}
+	.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+		color: black;
+		background-color: #fd7e14;
+		border-radius:3px;
+	}
+	.navbar-nav .nav-link {
+	padding-right: 0.8rem!important;
+	padding-left: 0.8rem!important;
+	font-size:16px;
+	}
+        </style>
+    </head>
+    <body>
+    {% include 'menu.html' %}
+<div class="container-fluid col-md-12  alert alert-secondary" style="height:70px; font-size:x-large"><span class="text-secondary">Online Registration</span></div>
+        <div class="container-fluid mt-3 mb-3">
+        <div class="row">
+        <div class="conatiner col-md-1"></div>
+        <div class="card col-md-10 alert alert-secondary">
+		<form action="{% url 'onlineregistration' %}" method="POST">
+				{% for msg in messages %}
+	            <div class="alert alert-{{msg.tags}}">{{msg}}</div>
+	            {% endfor %}
+	            {% csrf_token %}
+            <div class="card-body" style="width:100%;">
+                <div class="container-fluid col-md-12 bg-danger text-white" style="height:50px; font-size:x-large">Register For Online</div>
+            <div class="text-center"><span class="text-danger">Note -Mandatory field are marked within*(asterisk)</span></div>
+           <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label style="font-style: italic;">Apply Course*:</label>
+                    <select name="course" style="width:100%; height:40px" required="required" id="ch" onchange="course(this);">
+                        <option value="">Please  Select  Apply  Course  </option>
+                        <option value="ADCA(Advance Diploma in Computer Application)">ADCA(Advance Diploma in Computer Application)</option>
+                        <option value="CCA(Certificate in Computer Application)">CCA(Certificate in Computer Application)</option>
+                        <option value="CCC(Course on Computer Concepts)">CCC(Course on Computer Concepts)</option>
+                        <option value="DTP(Desktop Publication)">DTP(Desktop Publication)</option>
+                        <option value="(Tally ERP 9)computer Accounting Course">(Tally ERP 9)computer Accounting Course</option>
+                        <option value="IGD Bombay Art">IGD Bombay Art</option>
+                        <option value="Computerized Mobile Repairing">Computerized Mobile Repairing</option>
+                        <option value="Autocad">AutoCad</option>
+                        <option value="Computer Hardware & Networking">Computer Hardware & Networking</option>
+                        <option value="MCA(Master of Computer Application)">MCA(Master of Computer Application)</option>
+                        <option value="PGDCA">PGDCA</option>
+                        <option value="BCA(Bachlor's of Computer Application)">BCA(Bachlor's of Computer Application)</option>
+                        <option value="Web Designing">Web Designing</option>
+                        <option value="DCA 1 Year(Diploma in Computer Application)">DCA 1 Year(Diploma in Computer Application)</option>
+                        <option value="DRA(Diploma in Refrigeration & Air Conditioning)">DRA(Diploma in Refrigeration & Air Conditioning)</option>
+                    </select>
+					</div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label  style="font-style: italic;">Current Qualification:</label>
+                    <input type="text" class="form-control" name="qualification" placeholder="Qualification" title="Qualification">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label  style="font-style: italic;">Student Name*:</label>
+                      <input type="text" class="form-control" name="name" placeholder="Enter Student Name"  required="required" title="Enter Student Name">
+                  </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label  style="font-style: italic;">Father's Name/ Husband Name*:</label>
+                      <input type="text" class="form-control" name="father_name" placeholder="Enter Father's name/ Husband Name"  required="required" title="Enter Father's name/ Husband Name">
+                  </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label style="font-style: italic;">Gender*:</label>
+                  </div>
+                  <select name="gender" style="width:100%; height:40px;" id="ch"  required="required" onchange="change_color(this);">
+                    <option value="">Please  Select  Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="others">Others</option>
+                </select>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label style="font-style: italic;">Mother's Name*:</label>
+                      <input type="text" class="form-control" name="mother_name" placeholder="Enter Mother's Name"  required="required" title="Enter Mother's Name">
+                  </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label" for="pwd"  style="font-style: italic;">Date of Birth (dd/mm/yyyy)*:</label>
+                      <input type="date" class="form-control" name="date" placeholder="Enter Date of Birth" reuired="required" title="Enter Date of Birth">
+                  </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label  style="font-style: italic;">Postal Address*:</label>
+                      <input type="text" class="form-control" name="address" placeholder="Enter Student Address"  required="required" title="Enter Student Address">
+                  </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label  style="font-style: italic;">Marital Status:</label>
+                  </div>
+                  <select name="status" style="width:100%; height:40px;" id="ch" onchange="marital_status(this);">
+                    <option value="">Please Select Marital Status</option>
+                    <option value="married">Married</option>
+                    <option value="unmarried">Unmarried</option>
+                    <option value="others">Others</option>
+                </select>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label  style="font-style: italic;">Pin Code:</label>
+                      <input type="number" class="form-control" name="pin" placeholder="Enter Pin Code" title="Enter Pin Code">
+                  </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label style="font-style: italic;">Category:</label>
+                  </div>
+                  <select name="category" style="width:100%; height:40px;" id="ch" onchange="category(this);">
+                    <option value="">Please Select Category</option>
+                        <option value="general">General</option>
+                        <option value="obc">OBC</option>
+                        <option value="sc">SC</option>
+                        <option value="st">ST</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label  style="font-style: italic;">E-Mail*:</label>
+                      <input type="email" class="form-control" name="mail" placeholder="Enter Student Email"  required="required" title="Enter Student Email">
+                  </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label  style="font-style: italic;">Phone No.*:</label>
+                      <input type="text" class="form-control" name="phone" placeholder="Enter Student Phone No."  required="required" title="Enter your Student Phone No.">
+                  </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="row">
+                          <div class="col-md-3">
+                    <div class="form-group">
+                      <label  style="font-style: italic;">Branch:</label>
+                  </div>
+                  <select name="branch" style="width:100%; height:40px;" id="ch" onchange="branch(this);">
+                    <option value="">OPTIONS</option>
+                    <option value="br">BISKOHAR BRANCH</option>
+                    <option value="acc">AWADH COMPUTER CLASSES</option>
+                    <option value="gr">GAISADI BRANCH</option>
+                    <option value="fips">F.I. PUBLIC SCHOOL</option>
+                    <option value="sknb">SANT KABIR NAGAR BRANCH</option>
+                </select>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label class="control-label" for="text" style="font-style: italic;">Photo*:</label>
+                              <input type="file" class="" name="photo" id="text" placeholder="Choose File" required="required" name="userfile" accept="image/gif, image/jpeg, image/jpg, image/png">
+                          </div>
+                                  </div>
+
+                  </div>
+                  </div>
+                  </div>
+                  <div class="form-group text-center">
+                    <input type="checkbox" value="" required="required">
+                    <span class="text-danger">
+                    *I here by declare that the particular provided in the application form are correct to best of my knowledge</span></div>
+                  <button type="submit" class="btn btn-danger">Register</button>
+                  <button type="reset" class="btn btn-secondary">Reset</button>
+				 <br><br>
+            </div>
+			</form>
+        </div>
+        <div class="conatiner col-md-1"></div>
+        </div>
+            </div>
+    {% include 'footer.html' %}                                        
+{% include 'js.html' %}
+    </body>
+  </html>

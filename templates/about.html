@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
+	{% include 'css.html' %}
+    <title>About Us</title>
+	<style>
+	.bg-primary{
+		background-color: #000000!important;
+	}
+	.navbar-light .navbar-nav .nav-link {
+    color: white;
+	}
+	.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+		color: #ffc107;
+	}
+	.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+		color: black;
+		background-color: #fd7e14;
+		border-radius:3px;
+	}
+	.navbar-nav .nav-link {
+	padding-right: 0.8rem!important;
+	padding-left: 0.8rem!important;
+	font-size:16px;
+	}
+        </style>
+    </head>
+    <body>
+    {% include 'menu.html' %}
+<div class="container-fluid col-md-12  alert alert-secondary" style="height:70px; font-size:x-large"><span class="text-secondary">About Us</span></div>       	
+<div class="container-fluid">	
+      <div class="row">
+        <div class="col-md-4 mt-4">
+              <img src="https://tse2.mm.bing.net/th?id=OIP.3mluGVJqEzwWXvCXEmpPPAHaDX&pid=Api&P=0&w=347&h=159" style="width:100%; height:350px;">
+              </div>
+        <div class="col-md-8">
+		  <p class="text-justify p-3">
+		  Information Technology has become the fastest growing Industry in today's scenario which is providing thousands of 
+                job to well trained professionals. India has achieved a terrific growth in this field and is being considered as a 
+                Super Power in the world. Information Technology is providing the upcoming future that will change every face of Human
+                 existence.
+		  <br><br>
+		  Through this Computer literacy Programme, we ensure that our students learn more & more and become a dynamic human being.
+                 Our strong infrastructure, efficient, energetic, dedicated and capable officers urge the student to move forward.
+                  The academic rigor propels them to acquire greater professional competence. They have also been exposed to training 
+                  and real world projects.
+		  <br><br>
+          I am sure our students can meet any demand & challenges that the employer may have on them. I wish them great success in
+				all their endeavors and quest for a better tomorrow, for themselves and for the mankind.
+              <br><br>
+			   I am confident that you will gain good benefits from our training programme.I wish you every success in your studies
+                 and your career.
+		  </p>
+      </div>
+  </div>
+  </div>		
+    {% include 'footer.html' %}                                        
+{% include 'js.html' %}
+    </body>
+  </html>

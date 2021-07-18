@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
+	{% include 'css.html' %}
+    <title>Result</title>
+	<style>
+	.bg-primary{
+		background-color: #000000!important;
+	}
+	.navbar-light .navbar-nav .nav-link {
+    color: white;
+	}
+	.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+		color: #ffc107;
+	}
+	.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+		color: black;
+		background-color: #fd7e14;
+		border-radius:3px;
+	}
+	.navbar-nav .nav-link {
+	padding-right: 0.8rem!important;
+	padding-left: 0.8rem!important;
+	font-size:16px;
+	}
+        </style>
+    </head>
+    <body>
+    {% include 'menu.html' %}
+<div class="container-fluid col-md-12  alert alert-secondary" style="height:70px; font-size:x-large"><span class="text-secondary">Result</span></div>       	
+<div class="container-fluid">	
+      <div class="row">
+        <div class="col-md-4 mt-4">
+              <img src="assest/images/13.png" style="height:250px;">
+			 </div>
+        <div class="card col-md-8 alert alert-secondary">
+                <div class="card-body">
+                  <h5 class="card-title"><span class="text-secondary">View Result</span></h5>
+                </div>
+				<form action="{% url 'contact' %}" method="POST">
+				{% for msg in messages %}
+	            <div class="alert alert-{{msg.tags}}">{{msg}}</div>
+	            {% endfor %}
+	            {% csrf_token %}
+                  <div class="form-group-item">
+                    <label style="font-style: italic;">Select Option:</label>
+                    <select name="" style="width:50%; height:40px;" id="ch" onchange="Type(this);">
+                        <option value="">Please  Select  Type</option>
+                        <option value="result">Result</option>
+                        <option value="certificate">Certificate</option>
+                    </select>
+                  </div>
+                  <div class="form-group-item">
+                    <label style="font-style: italic;">Select Course:</label>
+                    <select name="course" style="width:50%; height:40px" required="required" id="ch" onchange="course(this);">
+                        <option value="">Please  Select Course  </option>
+                        <option value="ADCA">ADCA(Advance Diploma in Computer Application)</option>
+                        <option value="CCA">CCA(Certificate in Computer Application)</option>
+                        <option value="CCC">CCC(Course on Computer Concepts)</option>
+                        <option value="DTP">DTP(Desktop Publication)</option>
+                        <option value="Tally">(Tally ERP 9)computer Accounting Course</option>
+                        <option value="IGD">IGD Bombay Art</option>
+                        <option value="computer mobile repairing">Computerized Mobile Repairing</option>
+                        <option value="Autocad">AutoCad</option>
+                        <option value="computer hardware">Computer Hardware & Networking</option>
+                        <option value="MCA">MCA(Master of Computer Application)</option>
+                        <option value="PGDCA">PGDCA</option>
+                        <option value="BCA">BCA(Bachlor's of Computer Application)</option>
+                        <option value="web designing">Web Designing</option>
+                        <option value="DCA">DCA 1 Year(Diploma in Computer Application)</option>
+                        <option value="DRA">DRA(Diploma in Refrigeration & Air Conditioning)</option>
+                    </select>
+                  </div>
+                  <div class="form-group-item" style="width:100%;">
+                    <label style="font-style: italic;">Roll Number :</label>
+                    <input type="text" style="width:50%;" placeholder="Enter Your Roll No." title="Enter Your Roll No.">
+                  </div>
+				</form>
+                <div class="card-body">
+                    <button class="btn btn-danger"><a href="{% url 'listt' %}">Submit</a></button>
+                    <button class="btn btn-secondary">Reset</button>
+                </div>
+              </div>
+  </div>
+  </div>		
+    {% include 'footer.html' %}                                        
+{% include 'js.html' %}
+    </body>
+  </html>
